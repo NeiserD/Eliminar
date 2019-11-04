@@ -9,57 +9,54 @@ using System.Web.Mvc;
 
 namespace DIARS_PROYECTO_FINAL.Controllers
 {
-    public class Metodo_PagoController : Controller
+    public class OfertaController : Controller
     {
         StoreContext context = new StoreContext();
-
         public ActionResult Index()
         {
-            var pagos = context.metodoPagos.ToList();
-            return View(pagos);
+            var oferta = context.ofertas.ToList();
+            return View(oferta);
         }
 
-
-
-        // GET: Metodo_Pago/Create
+        // GET: Oferta/Create
         public ActionResult Crear()
         {
-            return View(new MetodoPago());
+            return View(new Oferta());
         }
 
-        // POST: Metodo_Pago/Create
+        // POST: Oferta/Create
         [HttpPost]
-        public ActionResult Crear(MetodoPago metodoPago)
+        public ActionResult Crear(Oferta oferta)
         {
             try
             {
-                context.metodoPagos.Add(metodoPago);
+                context.ofertas.Add(oferta);
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View(metodoPago);
+                return View(oferta);
             }
         }
 
-        [HttpGet]
+        // GET: Oferta/Edit/5
         public ActionResult Editar(int ID)
         {
-            var metodoPag = context.metodoPagos.Where(x=>x.id==ID).First();
-            
-            return View(metodoPag);
+
+            var oferta = context.ofertas.Where(o=>o.id== ID).First();
+
+            return View(oferta);
         }
 
-        // POST: Metodo_Pago/Edit/5
+        // POST: Oferta/Edit/5
         [HttpPost]
-        public ActionResult Editar(MetodoPago metodoPago)
+        public ActionResult Editar(Oferta oferta)
         {
             try
             {
-                context.Entry(metodoPago).State = EntityState.Modified;
+                context.Entry(oferta).State = EntityState.Modified;
                 context.SaveChanges();
-
                 return RedirectToAction("Index");
             }
             catch
@@ -67,14 +64,15 @@ namespace DIARS_PROYECTO_FINAL.Controllers
                 return View();
             }
         }
-        
-        [HttpGet]
+
+        // GET: Oferta/Delete/5
         public ActionResult Eliminar(int ID)
         {
-            MetodoPago metodoPago = context.metodoPagos.Where(x=>x.id==ID).First();
-            context.metodoPagos.Remove(metodoPago);
+            Oferta oferta = context.ofertas.Where(x=>x.id== ID).First();
+            context.ofertas.Remove(oferta);
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+        
     }
 }

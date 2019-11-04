@@ -12,12 +12,14 @@ namespace DIARS_PROYECTO_FINAL.BD
     {
         public IDbSet<Categoria> Categorias { get; set; }
         public IDbSet<MetodoPago> metodoPagos { get; set; }
+        public IDbSet<Oferta> ofertas { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new CategoriaMap());
             modelBuilder.Configurations.Add(new MetodoPagoMap());
+            modelBuilder.Configurations.Add(new OfertaMap());
         }
     }
     
