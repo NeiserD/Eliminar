@@ -9,12 +9,14 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
     <!-- Bootstrap -->
     <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/Estilos.css" rel="stylesheet" />
 
     <!-- Slick -->
     <link type="text/css" rel="stylesheet" href="~/Content/css/slick.css" />
@@ -39,7 +41,7 @@
             <div class="container">
                 <ul class="header-links pull-left">
                     <li><a href="#"><i class="fa fa-phone"></i> +51 965 456 564</a></li>
-                    <li><a href="#"><i class="fa fa-envelope-o"></i> polonyshoping@email.com</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> polonystore@gmail.com</a></li>
                     <li><a href="#"><i class="fa fa-map-marker"></i> Av. Hoyos Rubios 1734</a></li>
                 </ul>
                 <ul class="header-links pull-right">
@@ -160,9 +162,9 @@
             <div id="responsive-nav">
                 <!-- NAV -->
                 <ul class="main-nav nav navbar-nav">
-                    <li class="active"><a href="#">Inicio</a></li>
+                    <li class="active"><a href="http://localhost:49852/">Inicio</a></li>
                     <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Categorías</a></li>
+                    <li><a href="/Categoria">Categorías</a></li>
                 </ul>
                 <!-- /NAV -->
             </div>
@@ -173,6 +175,7 @@
   
     <!--------------------------------------------------------------------------------------------------------------------------------->
     <div class="container">
+        <br />
         @RenderBody()
     </div>
 
