@@ -42,30 +42,34 @@
                 <div class="col-lg-1">
 
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <ul class="header-links pull-left">
                         <li><a href="#"><i class="fa fa-phone"></i> +51 965 456 564</a></li>
                         <li><a href="#"><i class="fa fa-envelope-o"></i> polonystore@gmail.com</a></li>
                         <li><a href="#"><i class="fa fa-map-marker"></i> Av. Hoyos Rubios 1734</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                     <div class="row">
                         <fieldset style="color:white">
                             @if (Session["username"] != null)
                             {<text>
-                                    Bienvenido @Session["username"].ToString()
-                                    <br />
-
-                                    <a style="height:30px" class="btn btn-success justify-content-center" href="/User/Salir">Editar</a>
-                                    <a style="height:30px" class="btn btn-danger" href="/User/Salir">Salir</a>
-
+                            <div class="">
+                                Bienvenido @Session["username"].ToString()
+                                <br />
+                                <ul class="header-links pull-left">
+                                    <li class="text-left">
+                                        <a href="/User/Salir"><i class="fa "></i> Ver Perfil</a>
+                                        <a href="/User/Salir"><i class="fa "></i> Salir</a>
+                                    </li>
+                                </ul>
+                            </div>
                             </text>
                         }
                         </fieldset>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-2">
                     <ul class="header-links pull-right">
                         <li><a href="#"><i class="fa fa-user-o "></i> Registrar</a></li>
                         <li><a href="/User/Login"><i class="fa fa-user"></i> Iniciar Sesión</a></li>
@@ -188,10 +192,12 @@
             <!-- responsive-nav -->
             <div id="responsive-nav">
                 <!-- NAV -->
+                <!----------------------------------------------------------------------MENU---------------------------------------------------------------->
                 <ul class="main-nav nav navbar-nav">
                     <li class="active"><a href="http://localhost:49852/">Inicio</a></li>
                     <li><a href="/Metodo_Pago">Metodos de Pago</a></li>
                     <li><a href="/Categoria">Categorías</a></li>
+                    <li><a href="/Categoria">Ofertas</a></li>
                 </ul>
                 <!-- /NAV -->
             </div>
@@ -221,16 +227,16 @@
                         </form>
                         <ul class="newsletter-follow">
                             <li>
-                                <a style="color: blue;" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                                <a style="color: blue;" target="_blank" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
                             </li>
                             <li>
-                                <a style="color:deepskyblue ;" href="https://www.facebook.com"><i class="fa fa-twitter"></i></a>
+                                <a style="color:deepskyblue ;" target="_blank" href="https://www.facebook.com"><i class="fa fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a style="color: fuchsia;" href="#"><i class="fa fa-instagram"></i></a>
+                                <a style="color: fuchsia;" target="_blank" href="#"><i class="fa fa-instagram"></i></a>
                             </li>
                             <li>
-                                <a style="color: green;" href="#"><i class="fa fa-whatsapp"></i></a>
+                                <a style="color: green;" target="_blank" href="#"><i class="fa fa-whatsapp"></i></a>
                             </li>
                         </ul>
                     </div>

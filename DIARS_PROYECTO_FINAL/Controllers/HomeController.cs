@@ -26,5 +26,10 @@ namespace DIARS_PROYECTO_FINAL.Controllers
 
             return View();
         }
+
+        public ActionResult Map() {
+            return View();
+        }
+
     }
 }
