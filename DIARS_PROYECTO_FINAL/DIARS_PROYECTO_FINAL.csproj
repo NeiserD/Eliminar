@@ -131,8 +131,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BD\Maps\MetodoPagoMap.cs" />
     <Compile Include="BD\Maps\OfertaMap.cs" />
+    <Compile Include="BD\Maps\UsuarioMap.cs" />
     <Compile Include="BD\StoreContext.cs" />
     <Compile Include="BD\Maps\CategoriaMap.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Metodo_PagoController.cs" />
@@ -143,6 +145,7 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\MetodoPago.cs" />
     <Compile Include="Models\Oferta.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -267,9 +270,12 @@
     <Content Include="Views\Oferta\Index.cshtml" />
     <Content Include="Views\Oferta\Crear.cshtml" />
     <Content Include="Views\Oferta\Editar.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\UserDashBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
