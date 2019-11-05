@@ -3,47 +3,57 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<div class="container">
 
+    <div class=" row">
+        <div class="col-lg-3">
 
-@using (Html.BeginForm("Login", "User", FormMethod.Post))
-{
-    <fieldset>
-        <legend>Mvc Simple Login Application Demo</legend>
+        </div>
+        <div class="col-lg-4">
 
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        @if (@ViewBag.Message != null)
-        {
-            <div style="border: 1px solid red">
-                @ViewBag.Message
-            </div>
-        }
-        <table>
-            <tr>
+            @using (Html.BeginForm("Login", "User", FormMethod.Post))
+            {
+                <fieldset>
+                    <h2 class="">Iniciar Sesión</h2>
+                    <br />
 
-                <td>@Html.LabelFor(a => a.username)</td>
-                <td>@Html.TextBoxFor(a => a.username)</td>
-                <td>@Html.ValidationMessageFor(a => a.username)</td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(a => a.password)
-                </td>
-                <td>
-                    @Html.PasswordFor(a => a.password)
-                </td>
-                <td>
-                    @Html.ValidationMessageFor(a => a.password)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Login" />
-                </td>
-                <td></td>
-            </tr>
-        </table>
-    </fieldset>
-}  
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    @if (@ViewBag.Message != null)
+                    {
+                        <div style="border: 1px solid red">
+                            @ViewBag.Message
+                        </div>
+                    }
+                    @*<table class="">
+                            <tr>
+                                <td><strong>Usuario</strong></td>
+                                <td><input class="form-control" name="username" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Contraseña</strong>
+                                </td>
+                                <td><input class="form-control" type="password" name="password" value="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" value="Login" />
+                                </td>
+                            </tr>
+                        </table>*@
+                    <div class="row">
+                        <strong>Usuario</strong>
+                        <input class="form-control" placeholder="Nombre de Usuario" name="username" value="" />
+                        <br />
+                        <strong>Contraseña</strong>
+                        <input class="form-control" placeholder="Contraseña" type="password" name="password" value="" />
+                        <br />
+                        <input class="btn btn-primary"  type="submit" value="Login" />
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+</div>

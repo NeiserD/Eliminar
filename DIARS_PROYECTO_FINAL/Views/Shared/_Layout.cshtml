@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Electro - HTML Ecommerce Template</title>
+    <title>Polony Store</title>
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
@@ -38,18 +38,45 @@
     <header>
         <!-- TOP HEADER -->
         <div id="top-header">
-            <div class="container">
-                <ul class="header-links pull-left">
-                    <li><a href="#"><i class="fa fa-phone"></i> +51 965 456 564</a></li>
-                    <li><a href="#"><i class="fa fa-envelope-o"></i> polonystore@gmail.com</a></li>
-                    <li><a href="#"><i class="fa fa-map-marker"></i> Av. Hoyos Rubios 1734</a></li>
-                </ul>
-                <ul class="header-links pull-right">
-                    <li><a href="#"><i class="fa fa-user-o "></i> Registrar</a></li>
-                    <li><a href="#"><i class="fa fa-user"></i> Iniciar Sesión</a></li>
-                </ul>
+            <div class="row">
+                <div class="col-lg-1">
+
+                </div>
+                <div class="col-lg-4">
+                    <ul class="header-links pull-left">
+                        <li><a href="#"><i class="fa fa-phone"></i> +51 965 456 564</a></li>
+                        <li><a href="#"><i class="fa fa-envelope-o"></i> polonystore@gmail.com</a></li>
+                        <li><a href="#"><i class="fa fa-map-marker"></i> Av. Hoyos Rubios 1734</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <div class="row">
+                        <fieldset style="color:white">
+                            @if (Session["username"] != null)
+                            {<text>
+                                    Bienvenido @Session["username"].ToString()
+                                    <br />
+
+                                    <a style="height:30px" class="btn btn-success justify-content-center" href="/User/Salir">Editar</a>
+                                    <a style="height:30px" class="btn btn-danger" href="/User/Salir">Salir</a>
+
+                            </text>
+                        }
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <ul class="header-links pull-right">
+                        <li><a href="#"><i class="fa fa-user-o "></i> Registrar</a></li>
+                        <li><a href="/User/Login"><i class="fa fa-user"></i> Iniciar Sesión</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-1">
+
+                </div>
             </div>
         </div>
+        
         <!-- /TOP HEADER -->
         <!-- MAIN HEADER -->
         <div id="header">

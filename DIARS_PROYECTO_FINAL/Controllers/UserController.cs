@@ -16,20 +16,21 @@ namespace DIARS_PROYECTO_FINAL.Controllers
         //    var usuarios = db.Usuarios.ToList();
         //    return View(usuarios);
         //}
-
+        [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(Usuario usuario)
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(Usuario objUser)
         {
             if (ModelState.IsValid)
             {
-                using (StoreContext context = new StoreContext())
+                using (StoreContext db = new StoreContext())
                 {
-                    var obj = context.Usuarios.Where(a => a.username.Equals(context.Usuarios) && a.password.Equals(context.Usuarios)).FirstOrDefault();
+                    var obj = db.Usuarios.Where(a => a.username.Equals(objUser.username) && a.password.Equals(objUser.password)).FirstOrDefault();
                     if (obj != null)
                     {
                         Session["Id"] = obj.Id.ToString();
@@ -38,7 +39,7 @@ namespace DIARS_PROYECTO_FINAL.Controllers
                     }
                 }
             }
-            return View(usuario);
+            return View(objUser);
         }
 
         public ActionResult UserDashBoard()
@@ -51,6 +52,13 @@ namespace DIARS_PROYECTO_FINAL.Controllers
             {
                 return RedirectToAction("Login");
             }
+        }
+        public ActionResult Salir()
+        {
+            Session.Abandon();
+            Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
+            return RedirectToAction("Login");
+            //ModelState.AddModelError("", "Sesión Cerrada");
         }
     }
 } 
