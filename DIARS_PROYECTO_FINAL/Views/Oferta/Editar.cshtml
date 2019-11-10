@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <div class="container">
@@ -11,7 +12,7 @@
 
         <div class="container col-lg-6">
             <h2 class="subtitulos text-center bg-primary">Crear nueva Oferta</h2>
-            <form action="/Oferta/Crear" method="post">
+            <form action="/Oferta/Editar" method="post">
                 <label>Nombre</label>
                 <input class="form-control" autocomplete="off" name="nombre" value="@Model.nombre" />
                 <br />

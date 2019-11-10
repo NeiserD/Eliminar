@@ -11,6 +11,8 @@
     @Scripts.Render("~/bundles/bootstrap")
 
     @RenderSection("scripts", required: false)
+
+    <link href="~/Content/Admin/css/login.css" rel="stylesheet" />
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -35,14 +37,14 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header>
+    <header class="position-relative" >
         <!-- TOP HEADER -->
-        <div id="top-header">
+        <div id="top-header" class="position-relative">
             <div class="row">
                 <div class="col-lg-1">
 
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <ul class="header-links pull-left">
                         <li><a href="tel:+51 965 456 564"><i class="fa fa-phone"></i> +51 965 456 564</a></li>
                         <li><a href="mailto:store@gmail.com"><i class="fa fa-envelope-o"></i> polonystore@gmail.com</a></li>
@@ -54,16 +56,16 @@
                         <fieldset style="color:white">
                             @if (Session["username"] != null)
                             {<text>
-                            <div class="">
-                                Bienvenido @Session["username"].ToString()
-                                <br />
-                                <ul class="header-links pull-left">
-                                    <li class="text-left">
-                                        <a href="/User/Salir"><i class="fa "></i> Ver Perfil</a>
-                                        <a href="/User/Salir"><i class="fa "></i> Salir</a>
-                                    </li>
-                                </ul>
-                            </div>
+                                    <div class="">
+                                        Bienvenido @Session["username"].ToString()
+                                        <br />
+                                        <ul class="header-links pull-left">
+                                            <li class="text-left">
+                                                <a href="/User/Perfil"><i class="fa "></i> Ver Perfil</a>
+                                                <a href="/User/Salir"><i class="fa "></i> Salir</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                             </text>
                         }
                         </fieldset>
@@ -71,8 +73,7 @@
                 </div>
                 <div class="col-lg-2">
                     <ul class="header-links pull-right">
-                        <li><a href="#"><i class="fa fa-user-o "></i> Registrar</a></li>
-                        <li><a href="/User/Login"><i class="fa fa-user"></i> Iniciar Sesión</a></li>
+                        <li><a href="/User/Login"><i class="fa fa-user">    </i> Login</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-1">
@@ -80,7 +81,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- /TOP HEADER -->
         <!-- MAIN HEADER -->
         <div id="header">
@@ -102,9 +103,9 @@
                         <div class="header-search">
                             <form>
                                 <select class="input-select">
-                                    <option value="0">Categorias</option>
-                                    <option value="1">Hombre</option>
-                                    <option value="1">Mujer</option>
+                                    <option value="0">Categoria</option>
+                                    <option value="1">Precio</option>
+                                    <option value="1">Producto</option>
                                 </select>
                                 <input class="input" placeholder="Busque aquí">
                                 <button class="search-btn">Buscar</button>
@@ -194,9 +195,9 @@
                 <!-- NAV -->
                 <!----------------------------------------------------------------------MENU---------------------------------------------------------------->
                 <ul class="main-nav nav navbar-nav">
-                    <li class="active"><a href="http://localhost:49852/">Inicio</a></li>
-                    <li><a href="/Metodo_Pago">Metodos de Pago</a></li>
-                    <li><a href="/Categoria">Categorías</a></li>
+                    <li class="active"><a href="http://localhost:49852/">Home</a></li>
+                    <li><a href="/Metodo_Pago">Categorías</a></li>
+                    <li><a href="/Categoria">Ofertas</a></li>
                     <li><a href="/Categoria">Ofertas</a></li>
                 </ul>
                 <!-- /NAV -->
@@ -205,102 +206,39 @@
         </div>
         <!-- /container -->
     </nav>
-  
-    <!--------------------------------------------------------------------------------------------------------------------------------->
-    <div class="container">
-        <br />
-        @RenderBody()
-    </div>
 
-
-    <!-- NEWSLETTER -->
-    <div id="newsletter" class="section">
-        <!-- container -->
+        <!--------------------------------------------------------------------------------------------------------------------------------->
         <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="newsletter">
-                        <form>
-                            <input class="input" type="email" placeholder="Ingrese su correo">
-                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Suscribirse</button>
-                        </form>
-                        <ul class="newsletter-follow">
-                            <li>
-                                <a style="color: blue;" target="_blank" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a style="color:deepskyblue ;" target="_blank" href="https://www.facebook.com"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a style="color: fuchsia;" target="_blank" href="#"><i class="fa fa-instagram"></i></a>
-                            </li>
-                            <li>
-                                <a style="color: green;" target="_blank" href="#"><i class="fa fa-whatsapp"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- /row -->
+            <br />
+            @RenderBody()
         </div>
-        <!-- /container -->
-    </div>
-    <!-- /NEWSLETTER -->
-    <!-- FOOTER -->
-    <footer id="footer">
-        <!-- top footer -->
-        <div class="section">
+
+
+        <!-- NEWSLETTER -->
+        <div id="newsletter" class="section">
             <!-- container -->
             <div class="container">
                 <!-- row -->
                 <div class="row">
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Sobre nosotros</h3>
-                            <p>Somos una una tienda online dedicada a la venta de productos</p>
-                            <ul class="footer-links">
-                                <li><a href="/Home/Map"><i class="fa fa-map-marker"></i>Av. Hoyo Rubios</a></li>
-                                <li><a href="#"><i class="fa fa-phone"></i>+51 985 874 545</a></li>
-                                <li><a href="#"><i class="fa fa-envelope-o"></i>PolonyStore@email.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Categorias</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">Casacas</a></li>
-                                <li><a href="#">Pantalón</a></li>
-                                <li><a href="#">Zapatos</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="clearfix visible-xs"></div>
-
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Informacion</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">Conocenos</a></li>
-                                <li><a href="#">Contactenos</a></li>
-                                <li><a href="#">Politica de privacidad</a></li>
-                                <li><a href="#">Politica de devolución</a></li>
-                                <li><a href="#">Terminos y condiciones</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-xs-6">
-                        <div class="footer">
-                            <h3 class="footer-title">Servicios</h3>
-                            <ul class="footer-links">
-                                <li><a href="#">Mi Cuenta</a></li>
-                                <li><a href="#">Ver Carrito</a></li>
-                                <li><a href="#">Mi Orden</a></li>
-                                <li><a href="#">Ayuda</a></li>
+                    <div class="col-md-12">
+                        <div class="newsletter">
+                            <form>
+                                <input class="input" type="email" placeholder="Ingrese su correo">
+                                <button class="newsletter-btn"><i class="fa fa-envelope"></i> Suscribirse</button>
+                            </form>
+                            <ul class="newsletter-follow">
+                                <li>
+                                    <a style="color: blue;" target="_blank" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a style="color:deepskyblue ;" target="_blank" href="https://www.facebook.com"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a style="color: fuchsia;" target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                                </li>
+                                <li>
+                                    <a style="color: green;" target="_blank" href="#"><i class="fa fa-whatsapp"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -309,41 +247,117 @@
             </div>
             <!-- /container -->
         </div>
-        <!-- /top footer -->
-        <!-- bottom footer -->
-        <div id="bottom-footer" class="section">
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <ul class="footer-payments">
-                            <li><a style="color:white" href="#"><i class="fa fa-cc-visa"></i></a></li>
-                            <li><a style="color:white" href="#"><i class="fa fa-cc-paypal"></i></a></li>
-                            <li><a style="color:white" href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-                        </ul>
-                        <span class="copyright">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> PolonyStore | Todos los derechos reservados
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </span>
-                    </div>
-                </div>
-                <!-- /row -->
-            </div>
-            <!-- /container -->
-        </div>
-        <!-- /bottom footer -->
-    </footer>
-    <!-- /FOOTER -->
-    <!-- jQuery Plugins -->
-    <script src="~/Content/js/jquery.min.js"></script>
-    <script src="~/Content/js/jquery.min.js"></script>
-    <script src="~/Content/js/bootstrap.min.js"></script>
-    <script src="~/Content/js/slick.min.js"></script>
-    <script src="~/Content/js/nouislider.min.js"></script>
-    <script src="~/Content/js/jquery.zoom.min.js"></script>
-    <script src="~/Content/js/main.js"></script>
+        <!-- /NEWSLETTER -->
+        <!-- FOOTER -->
+        <footer id="footer">
+            <!-- top footer -->
+            <div class="section">
+                <!-- container -->
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Sobre nosotros</h3>
+                                <p>Somos una una tienda online dedicada a la venta de productos</p>
+                                <ul class="footer-links">
+                                    <li><a href="/Home/Map"><i class="fa fa-map-marker"></i>Av. Hoyo Rubios</a></li>
+                                    <li><a href="#"><i class="fa fa-phone"></i>+51 985 874 545</a></li>
+                                    <li><a href="#"><i class="fa fa-envelope-o"></i>PolonyStore@email.com</a></li>
+                                </ul>
+                            </div>
+                        </div>
 
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Categorias</h3>
+                                <ul class="footer-links">
+                                    <li><a href="#">Casacas</a></li>
+                                    <li><a href="#">Pantalón</a></li>
+                                    <li><a href="#">Zapatos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="clearfix visible-xs"></div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Informacion</h3>
+                                <ul class="footer-links">
+                                    <li><a href="#">Conocenos</a></li>
+                                    <li><a href="#">Contactenos</a></li>
+                                    <li><a href="#">Politica de privacidad</a></li>
+                                    <li><a href="#">Politica de devolución</a></li>
+                                    <li><a href="#">Terminos y condiciones</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Servicios</h3>
+                                <ul class="footer-links">
+                                    <li><a href="#">Mi Cuenta</a></li>
+                                    <li><a href="#">Ver Carrito</a></li>
+                                    <li><a href="#">Mi Orden</a></li>
+                                    <li><a href="#">Ayuda</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /top footer -->
+            <!-- bottom footer -->
+            <div id="bottom-footer" class="section">
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <ul class="footer-payments">
+                                <li><a style="color:white" href="#"><i class="fa fa-cc-visa"></i></a></li>
+                                <li><a style="color:white" href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                                <li><a style="color:white" href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            </ul>
+                            <span class="copyright">
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;
+                                <script>document.write(new Date().getFullYear());</script> PolonyStore | Todos los derechos reservados
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /bottom footer -->
+        </footer>
+        <!-- /FOOTER -->
+        <!-- jQuery Plugins -->
+        <script src="~/Content/js/jquery.min.js"></script>
+        <script src="~/Content/js/jquery.min.js"></script>
+        <script src="~/Content/js/bootstrap.min.js"></script>
+        <script src="~/Content/js/slick.min.js"></script>
+        <script src="~/Content/js/nouislider.min.js"></script>
+        <script src="~/Content/js/jquery.zoom.min.js"></script>
+        <script src="~/Content/js/main.js"></script>
+        @*<script>
+            $("#btnLogin").click(function (event) {
+
+                //Fetch form to apply custom Bootstrap validation
+                var form = $("#formLogin")
+
+                if (form[0].checkValidity() === false) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.addClass('was-validated');
+            });
+        </script>*@
 </body>
 </html>

@@ -15,9 +15,16 @@
 </head>
 <body>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center py-2">
+                <a href="#loginModal" role="button" class="btn btn-primary btn-lg" data-toggle="modal">Login</a>
+            </div>
+        </div>
+    </div>
     <!--Header-part-->
     <div id="header">
-        <h1><a href="dashboard.html">Matrix Admin</a></h1>
+        <h1><a href="dashboard.html">Matrix Admin-</a></h1>
     </div>
     <!--close-Header-part-->
     <!--top-Header-menu-->
@@ -30,7 +37,7 @@
                     <li class="divider"></li>
                     <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
                     <li class="divider"></li>
-                    <li><a href="login.html"><i class="icon-key"></i> Salir</a></li>
+                    <li><a href="/User/Salir"><i class="icon-key"></i> Salir</a></li>
                 </ul>
             </li>
             <li class="dropdown" id="menu-messages">
@@ -46,7 +53,7 @@
                 </ul>
             </li>
             <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Configuración</span></a></li>
-            <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Cerrar Sesión</span></a></li>
+            <li class=""><a title="" href="/User/Salir"><i class="icon icon-share-alt"></i> <span class="text">Cerrar Sesión</span></a></li>
         </ul>
     </div>
     <!--close-top-Header-menu-->
@@ -56,7 +63,6 @@
         <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
     </div>
     <!--close-top-serch-->
-
     <!--sidebar-menu-->
     <div id="sidebar">
         <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
@@ -114,7 +120,6 @@
         </ul>
     </div>
     <!--sidebar-menu-->
-   
     <!--main-container-part-->
     <div id="content">
         <!--breadcrumbs-->
@@ -126,34 +131,33 @@
         <div class="container-fluid">
             <div class="quick-actions_homepage">
                 <ul class="quick-actions">
-                    <li class="bg_lb"> <a href="index.html"> <i class="icon-dashboard"></i> <span class="label label-important">20</span> My Dashboard </a> </li>
-                    @*<li class="bg_lg span3"> <a href="charts.html"> <i class="icon-signal"></i> Charts</a> </li>*@
-                    <li class="bg_ly"> <a href="widgets.html"> <i class="icon-inbox"></i><span class="label label-success">101</span> Widgets </a> </li>
-                    @*<li class="bg_lo"> <a href="tables.html"> <i class="icon-th"></i> Tables</a> </li>*@
-                    @*<li class="bg_ls"> <a href="grid.html"> <i class="icon-fullscreen"></i> Full width</a> </li>*@
-                    <li class="bg_lo span3"> <a href="form-common.html"> <i class="icon-th-list"></i> Forms</a> </li>
-                    <li class="bg_ls"> <a href="buttons.html"> <i class="icon-tint"></i> Buttons</a> </li>
-                    @*<li class="bg_lb"> <a href="interface.html"> <i class="icon-pencil"></i>Elements</a> </li>
-                    <li class="bg_lg"> <a href="calendar.html"> <i class="icon-calendar"></i> Calendar</a> </li>*@
-                    @*<li class="bg_lr"> <a href="error404.html"> <i class="icon-info-sign"></i> Error</a> </li>*@
-
+                    <li style="height:30px" class="bg_ls"> <a href="/Producto/Index"> <i class="icon-shopping-cart"></i> Productos </a> </li>
+                    <li style="height:30px" class="bg_lo span3"> <a href="/Oferta/Index"> <i class="icon-certificate"></i> <span class="label label-important">Ofertas</span> Ofertas</a> </li>
+                    <li style="height:30px" class="bg_ly"> <a href="/Categoria/Index"> <i class="icon-inbox"></i><span class="label label-success">101</span> Categorías </a> </li>
+                    <li style="height:30px" class="bg_lg"> <a href="/Metodo_Pago/Index"> <i class="icon-credit-card"></i>Métodos de Pago</a> </li>
+                    @*<li class="bg_ls"> <a href="grid.html"> <i class="icon-facetime-video"></i> Full width</a> </li>
+                        <li class="bg_lo span3"> <a href="form-common.html"> <i class="icon-th-list"></i> Forms</a> </li>
+                        <li class="bg_ls"> <a href="buttons.html"> <i class="icon-file"></i> Buttons</a> </li>
+                        <li class="bg_lb"> <a href="interface.html"> <i class="icon-bolt"></i>Elements</a> </li>
+                        <li class="bg_lg"> <a href="calendar.html"> <i class="icon-camera"></i> Calendar</a> </li>
+                        <li class="bg_lr"> <a href="error404.html"> <i class="icon-arrow-right"></i> Error</a> </li>*@
                 </ul>
             </div>
             <!--End-Action boxes-->
-      
+
             <div class="container">
                 <br />
                 @RenderBody()
             </div>
             <!--End-Chart-box-->
             <hr />
-           </div>
         </div>
+    </div>
     <!--end-main-container-part-->
     <!--Footer-part-->
 
     <div class="row-fluid">
-        <div id="footer" class="span12"> 2019 &copy;PolonyStore. Todos los derechos reservados</a> </div>
+        <div id="footer" class="span12"> 2019 &copy;PolonyStore. Todos los derechos reservados</div>
     </div>
 
     <!--end-Footer-part-->
@@ -204,5 +208,6 @@
             document.gomenu.selector.selectedIndex = 2;
         }
     </script>
+  
 </body>
 </html>

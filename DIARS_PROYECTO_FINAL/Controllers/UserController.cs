@@ -10,12 +10,7 @@ namespace DIARS_PROYECTO_FINAL.Controllers
 {
     public class UserController : Controller
     {
-        
-        //public ActionResult Index()
-        //{
-        //    var usuarios = db.Usuarios.ToList();
-        //    return View(usuarios);
-        //}
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -23,9 +18,9 @@ namespace DIARS_PROYECTO_FINAL.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Login(Usuario objUser)
         {
+            validar(objUser);
             if (ModelState.IsValid)
             {
                 using (StoreContext db = new StoreContext())
@@ -38,7 +33,9 @@ namespace DIARS_PROYECTO_FINAL.Controllers
                         return RedirectToAction("UserDashBoard");
                     }
                 }
+
             }
+            validarambos(objUser);
             return View(objUser);
         }
 
@@ -57,8 +54,28 @@ namespace DIARS_PROYECTO_FINAL.Controllers
         {
             Session.Abandon();
             Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
-            return RedirectToAction("Login");
+            return RedirectToAction("", "Home");
             //ModelState.AddModelError("", "Sesión Cerrada");
         }
+
+        public void validar(Usuario objUser)
+        {
+            if (objUser.username == null || objUser.username == " ")
+            {
+                ModelState.AddModelError("username", "Ingrese su nombre de usuario");
+            }
+
+            if (objUser.password == null || objUser.password == " ")
+            {
+                ModelState.AddModelError("password", "Ingrese su contraseña");
+            }
+        }
+        public void validarambos(Usuario objUser)
+        {
+            if (objUser.username != null && objUser.username != "" || objUser.password != null && objUser.password != "")
+            {
+                ModelState.AddModelError("invalid", "Usuario y/o Contraseña incorrecta");
+            }
+        }
     }
-} 
+}
